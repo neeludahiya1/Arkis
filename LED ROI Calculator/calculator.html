@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LED ROI Calculator</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    	.table td,th {
+		 text-align: center;   
+		}
+    </style>
+    <script>
+    	function lighting_calculate(){
+    		var coe = document.getElementById("coe").value;
+    		var nof = document.getElementById("nof").value;
+    		var hpd = document.getElementById("hpd").value;
+    		var dpm = document.getElementById("dpm").value;
+    		var cw = document.getElementById("cw").value;
+    		var lw = document.getElementById("lw").value;
+    		
+    		var hpm = hpd*dpm;
+    		
+    		var led_kw = lw/1000;
+    		var led_month = hpm*led_kw*coe*nof;
+    		var led_year = led_month*12;
+    		var led_2years = led_year*2;
+    		var led_10years = led_year*10;
+    		document.getElementById("led_month").innerHTML = Math.round(led_month);
+    		document.getElementById("led_year").innerHTML = Math.round(led_year);
+    		document.getElementById("led_2years").innerHTML = Math.round(led_2years);
+    		document.getElementById("led_10years").innerHTML = Math.round(led_10years);
+    		
+    		var standard_kw = cw/1000;
+    		var standard_month = hpm*standard_kw*coe*nof;
+    		var standard_year = standard_month*12;
+    		var standard_2years = standard_year*2;
+    		var standard_10years = standard_year*10;
+    		document.getElementById("standard_month").innerHTML = Math.round(standard_month);
+    		document.getElementById("standard_year").innerHTML = Math.round(standard_year);
+    		document.getElementById("standard_2years").innerHTML = Math.round(standard_2years);
+    		document.getElementById("standard_10years").innerHTML = Math.round(standard_10years);
+    		
+    		var savings_month = standard_month-led_month;
+    		var savings_year = standard_year-led_year;
+    		var savings_2years = standard_2years-led_2years;
+    		var savings_10years = standard_10years-led_10years;
+    		document.getElementById("savings_month").innerHTML = Math.round(savings_month);
+    		document.getElementById("savings_year").innerHTML = Math.round(savings_year);
+    		document.getElementById("savings_2years").innerHTML = Math.round(savings_2years);
+    		document.getElementById("savings_10years").innerHTML = Math.round(savings_10years);
+    		
+    		// Second Section
+    		var csb = document.getElementById("csb").value;
+    		var lrb = document.getElementById("lrb").value;
+    		var hol = document.getElementById("hol").value;
+    		var smc = document.getElementById("smc").value;
+    		var lfc = document.getElementById("lfc").value;
+    		
+    		new_smc = (1 * csb + 1 * lrb) / (hol / (hpd * dpm * 12));
+    		document.getElementById("smc").value = Math.round(new_smc);
+    		
+    		led2_year = nof*lfc;
+    		
+    		standard2_year = nof*document.getElementById("smc").value;
+    		standard2_2years = standard2_year*2;
+    		standard2_5years = standard2_year*5;
+    		standard2_10years = standard2_year*10;
+    		
+    		savings2_year = standard2_year-led2_year;
+    		savings2_2years = standard2_2years-led2_year;
+    		savings2_5years = standard2_5years-led2_year;
+    		savings2_10years = standard2_10years-led2_year;
+    		
+    		document.getElementById("2led_year").innerHTML = Math.round(led2_year);
+    		document.getElementById("2led_2years").innerHTML = Math.round(led2_year);
+    		document.getElementById("2led_5years").innerHTML = Math.round(led2_year);
+    		document.getElementById("2led_10years").innerHTML = Math.round(led2_year);
+    		
+    		document.getElementById("2standard_year").innerHTML = Math.round(standard2_year);
+    		document.getElementById("2standard_2years").innerHTML = Math.round(standard2_2years);
+    		document.getElementById("2standard_5years").innerHTML = Math.round(standard2_5years);
+    		document.getElementById("2standard_10years").innerHTML = Math.round(standard2_10years);
+    		
+    		document.getElementById("2savings_year").innerHTML = Math.round(savings2_year);
+    		document.getElementById("2savings_2years").innerHTML = Math.round(savings2_2years);
+    		document.getElementById("2savings_5years").innerHTML = Math.round(savings2_5years);
+    		document.getElementById("2savings_10years").innerHTML = Math.round(savings2_10years);
+    		
+    		
+    	}
+    </script>
+  </head>
+  <body onload="lighting_calculate();">
+    <div class="container">
+	<div class="popup">
+    <div class="row" style="margin-top: 20px">
+    	<div class="col-sm-12">
+    		<form class="form-horizontal">
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Cost of Energy per KWH</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="coe" id="coe" value="0.13" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">No of fixtures you have</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="nof" id="nof" value="35" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Hours per day lights are on</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="hpd" id="hpd" value="13" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Days per month lights are on</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="dpm" id="dpm" value="30" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Current wattage</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="cw" id="cw" value="425" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">LED wattage</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="lw" id="lw" value="180" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="table-responsive">          
+				  <table class="table table-bordered">
+				    <thead>
+				      <tr>
+				        <th class="info" colspan="5">CALCULATED ENERGY COSTS OF LED VS STANDARD LIGHTING</th>
+				      </tr>
+				    </thead>
+				    <thead>
+				      <tr>
+				        <th></th>
+				        <th>Month</th>
+				        <th>Year</th>
+				        <th>2 Years </th>
+				        <th>10 Years</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <th>EMP LED</th>
+				        <td id="led_month"></td>
+				        <td id="led_year"></td>
+				        <td id="led_2years"></td>
+				        <td id="led_10years"></td>
+				      </tr>
+				      <tr>
+				        <th>Standard Fixture</th>
+				        <td id="standard_month"></td>
+				        <td id="standard_year"></td>
+				        <td id="standard_2years"></td>
+				        <td id="standard_10years"></td>
+				      </tr>
+				      <tr>
+				        <th>Energy Savings</th>
+				        <td id="savings_month"></td>
+				        <td id="savings_year"></td>
+				        <td id="savings_2years"></td>
+				        <td id="savings_10years"></td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</div>
+				<!--Second Section-->
+				<div class="form-group">
+			      <label class="control-label col-sm-3">Cost of standard bulb</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="csb" id="csb" value="80" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Labor to replace bulb</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="lrb" id="lrb" value="125" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Typical hours of life for standard bulb</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="hol" id="hol" value="5000" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Est. Years maintenance cost of standard lighting</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="smc" id="smc" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label class="control-label col-sm-3">Initial LED fixture cost</label>
+			      <div class="col-sm-9">
+			        <input type="number" class="form-control" name="lfc" id="lfc" value="950" onkeyup="lighting_calculate();">
+			      </div>
+			    </div>
+			    <div class="table-responsive">          
+				  <table class="table table-bordered">
+				    <thead>
+				      <tr>
+				        <th class="info" colspan="5">CALCULATED MAINTENANCE COSTS OF LED VS STANDARD LIGHTING</th>
+				      </tr>
+				    </thead>
+				    <thead>
+				      <tr>
+				        <th></th>
+				        <th>Year</th>
+				        <th>2 Years</th>
+				        <th>5 Years </th>
+				        <th>10 Years</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <th>EMP LED</th>
+				        <td id="2led_year"></td>
+				        <td id="2led_2years"></td>
+				        <td id="2led_5years"></td>
+				        <td id="2led_10years"></td>
+				      </tr>
+				      <tr>
+				        <th>Standard Bulb Maintenance</th>
+				        <td id="2standard_year"></td>
+				        <td id="2standard_2years"></td>
+				        <td id="2standard_5years"></td>
+				        <td id="2standard_10years"></td>
+				      </tr>
+				      <tr>
+				        <th>Maintenance Savings</th>
+				        <td id="2savings_year"></td>
+				        <td id="2savings_2years"></td>
+				        <td id="2savings_5years"></td>
+				        <td id="2savings_10years"></td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</div>
+			</form>
+    	</div>
+    </div>
+	</div>
+	</div>
+  </body>
+</html>

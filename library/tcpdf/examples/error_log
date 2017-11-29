@@ -1,0 +1,14 @@
+[11-Sep-2017 10:40:24 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_001.php on line 24
+[11-Sep-2017 10:50:41 Etc/GMT] PHP Notice:  Undefined variable: image_file in /home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_001.php on line 23
+[02-Oct-2017 14:02:25 Etc/GMT] PHP Warning:  Unknown: failed to open stream: Permission denied in Unknown on line 0
+[02-Oct-2017 14:02:25 Etc/GMT] PHP Fatal error:  Unknown: Failed opening required '/home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_046.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in Unknown on line 0
+[03-Oct-2017 01:48:50 Etc/GMT] PHP Warning:  Unknown: failed to open stream: Permission denied in Unknown on line 0
+[03-Oct-2017 01:48:50 Etc/GMT] PHP Fatal error:  Unknown: Failed opening required '/home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_046.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in Unknown on line 0
+[03-Oct-2017 11:37:00 Etc/GMT] PHP Warning:  Unknown: failed to open stream: Permission denied in Unknown on line 0
+[03-Oct-2017 11:37:00 Etc/GMT] PHP Fatal error:  Unknown: Failed opening required '/home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_046.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in Unknown on line 0
+[05-Oct-2017 09:27:02 Etc/GMT] PHP Warning:  Unknown: failed to open stream: Permission denied in Unknown on line 0
+[05-Oct-2017 09:27:02 Etc/GMT] PHP Fatal error:  Unknown: Failed opening required '/home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_046.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in Unknown on line 0
+[06-Oct-2017 08:50:45 Etc/GMT] PHP Warning:  Unknown: failed to open stream: Permission denied in Unknown on line 0
+[06-Oct-2017 08:50:45 Etc/GMT] PHP Fatal error:  Unknown: Failed opening required '/home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_046.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in Unknown on line 0
+[06-Oct-2017 15:45:36 Etc/GMT] PHP Warning:  Unknown: failed to open stream: Permission denied in Unknown on line 0
+[06-Oct-2017 15:45:36 Etc/GMT] PHP Fatal error:  Unknown: Failed opening required '/home/techsyru/public_html/arkisglobal.com/library/tcpdf/examples/example_046.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in Unknown on line 0
